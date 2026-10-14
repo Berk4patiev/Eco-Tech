@@ -1,0 +1,69 @@
+.home {
+  width: 100%;
+  height: calc(100vh - 100px); /* Navbar yüksekliği (100px) çıkarılarak ekranı tam kaplar */
+  background-image: url('../assets/background.png'); /* Arka plan görselin */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: flex-start; /* İçeriği sola hizalar */
+  align-items: center;
+  position: relative;
+  padding-left: 80px; /* Soldan şık bir mesafe bırakır */
+}
+
+/* Yazıların arka plandaki resimde kaybolmaması için hafif karartma katmanı */
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35); /* Hafif koyu filtre */
+  z-index: 1;
+}
+
+.headerContainer {
+  position: relative;
+  z-index: 2; /* Filtrenin üstünde görünmesini sağlar */
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headerContainer h1 {
+  font-size: 55px;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Yazının okunabilirliğini artırır */
+}
+
+.headerContainer p {
+  font-size: 18px;
+  color: #f1f5f9;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Açıklamanın okunmasını kolaylaştırır */
+  line-height: 1.7;
+}
+
+.headerContainer button {
+  background-color: #22c55e; /* Şık bir yeşil tonu */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.headerContainer button:hover {
+  background-color: #16a34a;
+  transform: translateY(-3px); /* Üzerine gelince hafif yukarı kalkma efekti */
+}
