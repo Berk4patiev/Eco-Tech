@@ -1,57 +1,51 @@
+/* Background now comes from the global body rule, shared with the navbar. */
+ 
 .home {
   width: 100%;
-  height: calc(100vh - 100px); /* Navbar yüksekliği (100px) çıkarılarak ekranı tam kaplar */
-  background-image: url('../assets/background.png'); /* Arka plan görselin */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  min-height: calc(100vh - 100px); /* fills the screen below the navbar */
   display: flex;
-  justify-content: flex-start; /* İçeriği sola hizalar */
+  justify-content: flex-start;
   align-items: center;
-  position: relative;
-  padding-left: 80px; /* Soldan şık bir mesafe bırakır */
+  padding-left: 80px;
 }
-
-/* Yazıların arka plandaki resimde kaybolmaması için hafif karartma katmanı */
+ 
+/* Soft dark gradient behind the text, covering the whole screen so it
+   doesn't leave a visible edge under the navbar. It sits behind the
+   content and doesn't block clicks. */
 .home::before {
   content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.35); /* Hafif koyu filtre */
-  z-index: 1;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 70%);
 }
-
+ 
 .headerContainer {
-  position: relative;
-  z-index: 2; /* Filtrenin üstünde görünmesini sağlar */
   max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
+ 
 .headerContainer h1 {
   font-size: 55px;
   color: white;
   font-weight: bold;
   margin-bottom: 15px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Yazının okunabilirliğini artırır */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
-
+ 
 .headerContainer p {
   font-size: 18px;
   color: #f1f5f9;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Açıklamanın okunmasını kolaylaştırır */
   line-height: 1.7;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
-
+ 
 .headerContainer button {
-  background-color: #22c55e; /* Şık bir yeşil tonu */
+  background-color: #22c55e;
   color: white;
   border: none;
   padding: 12px 30px;
@@ -62,8 +56,27 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
+ 
 .headerContainer button:hover {
   background-color: #16a34a;
-  transform: translateY(-3px); /* Üzerine gelince hafif yukarı kalkma efekti */
+  transform: translateY(-3px);
+}
+ 
+.headerContainer button:focus-visible {
+  outline: 2px solid #39d400;
+  outline-offset: 3px;
+}
+ 
+@media (max-width: 767px) {
+  .home {
+    padding: 0 24px;
+  }
+ 
+  .headerContainer h1 {
+    font-size: 40px;
+  }
+ 
+  .headerContainer p {
+    font-size: 16px;
+  }
 }

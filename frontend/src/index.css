@@ -1,0 +1,11 @@
+/* Put this in your global stylesheet (index.css / App.css), NOT in Navbar.css.
+   Adjust the url() so it points at src/assets/background.png from that file. */
+ 
+body {
+  background-image: url('./assets/background.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; /* nav and page share one continuous image */
+  min-height: 100vh;
+}
